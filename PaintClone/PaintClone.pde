@@ -32,31 +32,6 @@ void draw() {
   fill(125, 0, 0);
   rect(0, 0, width/6, height/11);
 
-  //increase b value if button pressed
-  if (mousePressed && width/1.2<mouseX && mouseX<width/1 && mouseY<height/10) {
-    B = B + 5;
-  }
-  //decrease b value if button pressed
-  if (mousePressed && width/1.5<mouseX && mouseX<width/1.2 && mouseY<height/10) {
-    B = B - 5;
-  }
-  //increase g value if button pressed
-  if (mousePressed && width/2<mouseX && mouseX<width/1.5 && mouseY<height/10) {
-    G = G + 5;
-  }
-  //decrease g value if button pressed
-  if (mousePressed && width/3<mouseX && mouseX<width/2 && mouseY<height/10) {
-    G = G - 5;
-  }
-  //increase r value if button pressed
-  if (mousePressed && width/6<mouseX && mouseX<width/3 && mouseY<height/10) {
-    R = R + 5;
-  }
-  //decrease r value if button pressed
-  if (mousePressed && width/width<mouseX && mouseX<width/6 && mouseY<height/10) {
-    R = R - 5;
-  }
-
   //current color display + reset
   //bottom button area
   fill(#838383);
@@ -65,6 +40,7 @@ void draw() {
   fill(#C9C9C9);
   rect(0, height/1.2, width/2, height/6);
 
+  //RGB value display
   textSize(width/100);
   fill(0);
   text("R =", width/40, height/1.16); 
@@ -80,5 +56,32 @@ void draw() {
     stroke(R, G, B);
     fill(R, G, B);
     ellipse(mouseX, mouseY, 10, 10);
+  }
+}
+
+void mouseClicked() {
+  //increase b value if button pressed
+  if (width/1.2<mouseX && mouseX<width/1 && mouseY<height/10) {
+    B = B + 5;
+  }
+  //decrease b value if button pressed
+  if (width/1.5<mouseX && mouseX<width/1.2 && mouseY<height/10) {
+    B = B - 5;
+  }
+  //increase g value if button pressed
+  if (width/2<mouseX && mouseX<width/1.5 && mouseY<height/10) {
+    G = G + 5;
+  }
+  //decrease g value if button pressed
+  if (width/3<mouseX && mouseX<width/2 && mouseY<height/10) {
+    G = G - 5;
+  }
+  //increase r value if button pressed
+  if (width/6<mouseX && mouseX<width/3 && mouseY<height/10) {
+    R = R + 5;
+  }
+  //decrease r value if button pressed
+  if (width/width<mouseX && mouseX<width/6 && mouseY<height/10) {
+    R = R - 5;
   }
 }
