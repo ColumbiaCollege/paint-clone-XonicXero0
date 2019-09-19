@@ -4,6 +4,14 @@
 int R = 0;
 int G = 0;
 int B = 0;
+//Strings for text
+String EPPC = "Eric Price Paint Clone V5";
+String BH = "Blue +";
+String BL = "Blue -";
+String GH = "Green +";
+String GL = "Green -";
+String RH = "Red +";
+String RL = "Red -";
 
 void setup() {
   //screen
@@ -12,39 +20,53 @@ void setup() {
 }
 
 void draw() {
-  
+
   //color selection area 
   stroke(0);
   fill(0);
+
   //button for B(blue) to be higher
   fill(0, 0, 255);
-  rect(0, 0, width, height/11);
+  rect(width/1.2, 0, width/6, height/11);
+  textSize(width/30);
+  fill(0);
+  text(BH, width/1.2, height/11);
   //button for B to be lower
   fill(0, 0, 125);
-  rect(0, 0, width/1.2, height/11);
+  rect(width/1.5, 0, width/6, height/11);
+  textSize(width/30);
+  fill(0);
+  text(BL, width/1.5, height/11);
   //button for G(green) to be higher
   fill(0, 255, 0);
-  rect(0, 0, width/1.5, height/11);
+  rect(width/2, 0, width/6, height/11);
+  textSize(width/30);
+  fill(0);
+  text(GH, width/2, height/11);
   //button for G to be lower 
   fill(0, 125, 0);
-  rect(0, 0, width/2, height/11);
+  rect(width/3, 0, width/6, height/11);
+  textSize(width/30);
+  fill(0);
+  text(GL, width/3, height/11);
   //button for R(red) to be higher 
   fill(255, 0, 0);
-  rect(0, 0, width/3, height/11);
-  //button for R to be lower
+  rect(width/6, 0, width/6, height/11);
+  textSize(width/30);
+  fill(0);
+  text(RH, width/6, height/11);
+  ////button for R to be lower
   fill(125, 0, 0);
   rect(0, 0, width/6, height/11);
+  textSize(width/30);
+  fill(0);
+  text(RL, 0, height/11);
 
-  
-  
-  
-  
   //current color display + clear button
-  
+
   //RGB value display
   fill(#C9C9C9);
-  rect(0, height/1.2, width/2, height/6);
-  //RGB display 
+  rect(0, height/1.2, width/3, height/6);
   textSize(width/100);
   fill(R, 0, 0);
   text("R =", width/40, height/1.15); 
@@ -55,16 +77,27 @@ void draw() {
   fill(0, 0, B);
   text("B =", width/40, height/1.05);
   text(B, width/20, height/1.05);
-  stroke(0);
   fill(0);
+
+  strokeWeight(3);
+  fill(R, G, B);
+  rect(width/12, height/1.15, width/40, height/12);
+  stroke(0);
+  strokeWeight(1);
+
+  //fancy crap
+  fill(#838383);
+  rect(width/3, height/1.2, width/3, height/6);
+  textSize(width/35);
+  fill(0);
+  text(EPPC, width/3, height/1.2, width/3, height/6);
 
   //clear button
-  fill(#838383);
-  rect(width/2, height/1.2, width, height/6);
+  fill(#C9C9C9);
+  rect(width/1.5, height/1.2, width/3, height/6);
   textSize(width/20);
   fill(0);
-  text("Clear all", width/1.55, height/1.05);
-
+  text("Clear all", width/1.35, height/1.05);
 
   //stop color values from being above 255 or negative 
   if (R > 256) {
@@ -121,7 +154,7 @@ void mouseClicked() {
     R = R - 5;
   }
   //clicking clear button 
-  if (mouseX > width/2 && mouseY > height/1.2 && mouseX < width && mouseY < height) {
+  if (mouseX > width/1.5 && mouseY > height/1.2 && mouseX < width && mouseY < height) {
     background(255);
   }
 }
