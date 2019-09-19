@@ -1,11 +1,13 @@
-//Eric Price Paint clone
+//Eric Price Paint Clone V6
 
 //RGB values
 int R = 0;
 int G = 0;
 int B = 0;
+//Brush Size
+int Size = 10; 
 //Strings for text
-String EPPC = "Eric Price Paint Clone V5";
+String EPPC = "Eric Price Paint Clone V6";
 String BH = "Blue +";
 String BL = "Blue -";
 String GH = "Green +";
@@ -15,7 +17,7 @@ String RL = "Red -";
 
 void setup() {
   //screen
-  size (1920, 1080);
+  size (1680, 950);
   background(255);
 }
 
@@ -55,7 +57,7 @@ void draw() {
   textSize(width/30);
   fill(0);
   text(RH, width/6, height/11);
-  ////button for R to be lower
+  //button for R to be lower
   fill(125, 0, 0);
   rect(0, 0, width/6, height/11);
   textSize(width/30);
@@ -79,13 +81,20 @@ void draw() {
   text(B, width/20, height/1.05);
   fill(0);
 
+  //Box that displays current color  
   strokeWeight(3);
   fill(R, G, B);
   rect(width/12, height/1.15, width/40, height/12);
   stroke(0);
   strokeWeight(1);
 
-  //fancy crap
+  //Thing to change brush size
+  fill(#6C6C6C);
+  rect(width/4.2, height/1.16, width/13.5, height/9);
+  fill(#393838);
+  rect(width/6, height/1.16, width/13.5, height/9);
+
+  //fancy crap AKA my name print clone blah blah 
   fill(#838383);
   rect(width/3, height/1.2, width/3, height/6);
   textSize(width/35);
@@ -124,7 +133,7 @@ void draw() {
     strokeWeight(1);
     stroke(R, G, B);
     fill(R, G, B);
-    ellipse(mouseX, mouseY, 10, 10);
+    ellipse(mouseX, mouseY, Size, Size);
   }
 }
 
@@ -157,4 +166,12 @@ void mouseClicked() {
   if (mouseX > width/1.5 && mouseY > height/1.2 && mouseX < width && mouseY < height) {
     background(255);
   }
+  //increase brush size button
+  if(width/6<mouseX && height/1.16<mouseY && width/4.2>mouseX){
+    Size = Size + 1;
+  } 
+  //decrease brush size button
+   if(width/4.2<mouseX && height/1.16<mouseY && width/3.2>mouseX){
+    Size = Size - 1;
+  } 
 }
